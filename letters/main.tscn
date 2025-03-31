@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://68qx35a0h623"]
+
+[ext_resource type="Script" uid="uid://dfagsk70m4ium" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://d1fygcwx72p8n" path="res://character_body_2d.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://bxae68ua842n1" path="res://icon.svg" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://4gb7amxoytwm" path="res://letter.tscn" id="4_1bvp3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bvp3"]
+radius = 45.5412
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_h2yge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 653.0
+color = Color(0.593134, 0.593134, 0.593134, 1)
+
+[node name="Letter" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(637, 325)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(359, 316)
+shape = SubResource("CircleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(363, 318)
+scale = Vector2(0.515625, 0.757812)
+texture = ExtResource("3_lquwl")

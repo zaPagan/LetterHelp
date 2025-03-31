@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0pklcayyfand"]
+
+[ext_resource type="Script" uid="uid://bd4qt70qmwm3o" path="res://open_letter.gd" id="1_p2yry"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2yry"]
+size = Vector2(264, 134)
+
+[node name="Open Letter" type="Area2D"]
+script = ExtResource("1_p2yry")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 233.0
+offset_bottom = 116.0
+color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_right = 233.0
+offset_bottom = 114.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 15
+text = "test
+test
+test
+test
+"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(122, 57)
+shape = SubResource("RectangleShape2D_p2yry")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

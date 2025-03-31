@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://4gb7amxoytwm"]
+
+[ext_resource type="Script" uid="uid://bygyjyja3mhtb" path="res://letter.gd" id="1_5gbsb"]
+[ext_resource type="Texture2D" uid="uid://bxae68ua842n1" path="res://icon.svg" id="1_r6swm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6swm"]
+radius = 32.0156
+
+[node name="Letter" type="Area2D"]
+script = ExtResource("1_5gbsb")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.43134, 0.43134, 0.43134, 1)
+position = Vector2(22, 11.5)
+scale = Vector2(0.3125, 0.164062)
+texture = ExtResource("1_r6swm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, 10)
+shape = SubResource("CircleShape2D_r6swm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
